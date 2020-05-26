@@ -27,7 +27,7 @@ namespace nntest {
     //%
     uint16_t getLux(int16_t ADCVal) {
 
-        return ADCVal * .333;
+        return ADCVal * .25;
     }
 
 }
