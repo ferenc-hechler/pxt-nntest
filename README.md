@@ -12,21 +12,34 @@ test repository for the neural networks calliope extension
 ## build
 
 ```
-(yotta) E:\CALLIOPE\pxt-calliope>pxt target calliope
-...
+(yotta) E:\CALLIOPE>mkdir pxt-microbit
+(yotta) E:\CALLIOPE>cd pxt-microbit
+(yotta) E:\CALLIOPE\pxt-microbit>pxt target microbit
+        ... downloads ...
 
+(yotta) E:\CALLIOPE\pxt-microbit>pxt serve
+        ... create project "nntest2", edit files, exit browser, <Ctrl>-'C' ...
 
-
-(yotta) C:\Users\feri\git\pxt-nntest>pxt target calliope
-..
-(yotta) C:\Users\feri\git\pxt-nntest>pxt install
-Using target calliopemini with build engine yotta
-  target: v2.1.57 C:\Users\feri\git\pxt-nntest\node_modules\pxt-calliope
-  pxt-core: v5.36.9 C:\Users\feri\git\pxt-nntest\node_modules\pxt-core
+(yotta) E:\CALLIOPE\pxt-microbit>cd projects\nntest2
+(yotta) E:\CALLIOPE\pxt-microbit\projects\nntest2>pxt install
+Using target microbit with build engine yotta
+  target: v3.0.1 E:\CALLIOPE\pxt-microbit\node_modules\pxt-microbit
+  pxt-core: v5.37.83 E:\CALLIOPE\pxt-microbit\node_modules\pxt-core
 installing dependencies...
 
-(yotta) C:\Users\feri\git\pxt-nntest>pxt build
+(yotta) E:\CALLIOPE\pxt-microbit\projects\nntest2>pxt build
+Using target microbit with build engine yotta
+  target: v3.0.1 E:\CALLIOPE\pxt-microbit\node_modules\pxt-microbit
+  pxt-core: v5.37.83 E:\CALLIOPE\pxt-microbit\node_modules\pxt-core
+building E:\CALLIOPE\pxt-microbit\projects\nntest2
+
+(yotta) E:\CALLIOPE\pxt-microbit\projects\nntest2>copy built\binary.hex G:\
+        1 Datei(en) kopiert.
+        ... calliope mini runs newest code ...
 ```
+
+Remark: when using pxt-calliope as target the build fails with the message file "device.h" not found.
+
 
 ## Supported targets
 
