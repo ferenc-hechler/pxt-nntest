@@ -1,0 +1,18 @@
+{
+    "name": "nntest",
+    "version": "0.0.3",
+    "description": "neural network test nntest",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "nntest.ts",
+        "nntest.cpp",
+        "shims.d.ts",
+        "enums.d.ts"
+    ],
+    "testFiles": [],
+    "public": true
+}
