@@ -1,2 +1,2 @@
-let v = nntest.light(200, nntestType.Lux)
+let v = nntest.light(444, nntestType.Lux)
 basic.showNumber(v)

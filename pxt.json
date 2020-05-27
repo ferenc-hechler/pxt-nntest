@@ -1,5 +1,5 @@
 {
-    "name": "nntest2",
+    "name": "pxt-nntest",
     "description": "",
     "dependencies": {
         "core": "*",
