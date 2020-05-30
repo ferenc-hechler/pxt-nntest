@@ -13,7 +13,25 @@ test repository for the neural networks calliope extension
 
 ### prerequisite
 
-install pxt
+see: https://makecode.com/cli
+
+install NodeJS: https://nodejs.org/
+12.17.0 LTS
+
+npm install -g pxt
+
+install CMake: https://cmake.org/download/
+https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-win64-x64.msi
+
+install ninja: https://github.com/martine/ninja/releases/download/v1.5.3/ninja-win.zip
+
+install cpp  arm-none-eabi-gcc cross compiler: https://launchpad.net/gcc-arm-embedded
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads
+
+install srecord
+https://sourceforge.net/projects/srecord/files/srecord-win32/1.64/
+
+### install microbit
 
 install pxt-microbit, runs server, create project, modify project and build from cli:
 
