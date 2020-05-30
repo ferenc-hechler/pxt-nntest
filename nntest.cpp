@@ -62,14 +62,12 @@ void initfcnn(int inputs, RefCollection &hidden, int outputs) {
 
 
 
-    /*
-    * Calculates the light in Lux based on the ADC value passed in. 1 step in adcVal is equal to .488 uA or .976 lux at 5V
-    */
-    //%
-    int16_t getLux(int16_t ADCVal) {
-    	int16_t result = ADCVal * .25;
-    	logInt(result);
-        return result;
-    }
+//% weight=30
+//% blockId=nntest_setactivation
+//% block="Set Activation| %activationFunctionType"
+//% shim=nntest::setactivation
+void setactivation(int activation) {
+	logNamedInt("activation", activation);
+}
 
 }

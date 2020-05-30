@@ -4,16 +4,20 @@
  * Functions to operate the gatorlight sensor
  */
 
- enum nntestType{
-	 Lux=1,
-	 adcVal=2
- }
+ enum activationFunctionType{
+	 None=0,
+	 RELU=1,
+	 SIGMOID=2,
+     SOFTMAX=3,
+     TANHYP=4
+}
 
 
 
 //% weight=70 icon="\u237E" color=#75CC05 block="NN"
 namespace nntest {
 
+    //% weight=10 
     //% blockId=nntest_initfcnn
     //% block="Init Brain|number %inputs|number[] %hidden|number %outputs"
     //% shim=nntest::initfcnn
@@ -21,25 +25,27 @@ namespace nntest {
     	basic.showString("sim:init")
     }
 
-
-    /**
-    * Reads the number
-    */
-    //% weight=30 blockId="nntest_light" block="Get Number %num in %nntestType"
-    export function light(num: number, type: nntestType): number{
-      switch(type){
-        case nntestType.Lux: return getLux(num)
-        case nntestType.adcVal: return num
-        default: return -11111111
-      }
+    //% weight=20 
+    //% blockId=nntest_fcnnfromjson
+    //% block="Json Brain|string %json"
+    //% shim=nntest::fcnnfromjson
+    export function fcnnfromjson(json: string): void {
+    	basic.showString("sim:json")
     }
 
-	/**
-     * Function used for simulator, actual implementation is in nntest.cpp
-     */
-    //% shim=nntest::getLux
-    function getLux(ADCVal: number) {
-        return 3*ADCVal
+    //% weight=30 
+    //% blockId=nntest_setactivation
+    //% block="Set Activation| %activationFunctionType"
+    //% shim=nntest::setactivation
+    export function setactivation(activation: activationFunctionType): void {
+      switch(activation){
+        case activationFunctionType.None: basic.showString("act=None")
+        case activationFunctionType.RELU: basic.showString("act=RELU")
+        case activationFunctionType.SIGMOID: basic.showString("act=SIGMOID")
+        case activationFunctionType.SOFTMAX: basic.showString("act=SOFTMAX")
+        case activationFunctionType.TANHYP: basic.showString("act=TANHYP")
+        default: basic.showString("act=<invalid value>")
+      }
     }
 
  }
