@@ -1,11 +1,10 @@
 serial.writeLine("START")
 nntest.initfcnn(3, [7, 7], 2)
-nntest.fcnnfromjson("{\"inputs\":3,\"outputs\":2}")
 nntest.setactivation(activationFunctionType.TANHYP)
 let v = nntest.ftrain([13, 14, 15], [0, 1])
 let ergebnis = [0, 1]
 nntest.predict([11, 12, 13], ergebnis)
-nntest.predict(ergebnis, ergebnis)
+serial.writeNumbers(ergebnis)
 basic.showNumber(v)
 serial.writeLine("STOP")
 basic.showString("bye")
