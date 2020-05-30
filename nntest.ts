@@ -1,10 +1,10 @@
 
 
 /**
- * Functions to operate the gatorlight sensor
+ * enum for activation function
  */
 
- enum activationFunctionType{
+enum activationFunctionType{
 	 None=0,
 	 RELU=1,
 	 SIGMOID=2,
@@ -14,10 +14,10 @@
 
 
 
-//% weight=70 icon="\u237E" color=#75CC05 block="NN"
+//% weight=70 icon="\u237E" color=#74DF00 block="AI"
 namespace nntest {
 
-    //% weight=10 
+    //% weight=100 
     //% blockId=nntest_initfcnn
     //% block="Init Brain|number %inputs|number[] %hidden|number %outputs"
     //% shim=nntest::initfcnn
@@ -25,7 +25,7 @@ namespace nntest {
     	basic.showString("sim:init")
     }
 
-    //% weight=20 
+    //% weight=90 
     //% blockId=nntest_fcnnfromjson
     //% block="Json Brain|string %json"
     //% shim=nntest::fcnnfromjson
@@ -33,7 +33,7 @@ namespace nntest {
     	basic.showString("sim:json")
     }
 
-    //% weight=30 
+    //% weight=80 
     //% blockId=nntest_setactivation
     //% block="Set Activation| %activationFunctionType"
     //% shim=nntest::setactivation
@@ -47,5 +47,32 @@ namespace nntest {
         default: basic.showString("act=<invalid value>")
       }
     }
+
+
+    //% weight=70 
+    //% blockId=nntest_train
+    //% block="Train|number[] %input|number[] %expected_output"
+    //% shim=nntest::train
+    export function train(input: number[], expected_output: number[]): void {
+    	basic.showString("sim-train")
+    }
+
+    //% weight=60 
+    //% blockId=nntest_ftrain
+    //% block="Train with err result|number[] %input|number[] %expected_output"
+    //% shim=nntest::ftrain
+    export function ftrain(input: number[], expected_output: number[]): number {
+    	basic.showString("sim-ftrain")
+        return 1
+    }
+
+    //% weight=50 
+    //% blockId=nntest_predict
+    //% block="Predict|number[] %input|number[] %output"
+    //% shim=nntest::predict
+    export function predict(input: number[], output: number[]): void {
+    	basic.showString("sim-predict")
+    }
+
 
  }
