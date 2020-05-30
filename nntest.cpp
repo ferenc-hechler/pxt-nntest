@@ -91,7 +91,6 @@ void initfcnn(int inputs, RefCollection &hidden, int outputs) {
 //% shim=nntest::fcnnfromjson
 void fcnnfromjson(String json) {
 
-    logLn("creating FCNN from JSON");
 	if (brain != 0) {
 		delete brain;
 		brain = 0;
@@ -106,7 +105,6 @@ void fcnnfromjson(String json) {
 	if (brain != 0) {
 		brain->print();
 	}
-	logLn("FCNN successfully created\r\n");
 }
 
 
@@ -114,7 +112,6 @@ void fcnnfromjson(String json) {
 //% block="Set Activation| %activationFunctionType"
 //% shim=nntest::setactivation
 void setactivation(int activation) {
-	logNamedInt("setActivation", activation);
 	if (brain != 0) {
 		int maxLayer = brain->getNumLayers()-1;
 		for (int n=0; n<maxLayer; n++) {
@@ -129,43 +126,18 @@ void setactivation(int activation) {
 //% block="Train with err result|number[] %input|number[] %expected_output"
 //% shim=nntest::ftrain
 float ftrain(RefCollection &input, RefCollection &expected_output) {
-
-    logLn("ftrain started");
-
 	float learning_rate = 0.001;
 	Vect *x = toVect(input);
-
-	log("x: ");
-	x->print();
-
 	Vect *y = toVect(expected_output);
-
-	log("y: ");
-	y->print();
-
 	Vect *y_hat = brain->forwardPropagate(x);
-
-	log("y_hat: ");
-	y->print();
-
 	Vect *e = brain->backwardPropagate(y, y_hat, learning_rate);
-
-	log("e: ");
-	y->print();
-
 	y_hat->sub(y);
 	y_hat->sqr();
 	float sum_sq_err = y_hat->sum();
-
-	logNamedFloat("sum_sq_err", sum_sq_err);
-
 	delete x;
 	delete y;
 	delete y_hat;
 	delete e;
-
-	logLn("ftrain finished");
-
 	return sum_sq_err;
 }
 
@@ -182,9 +154,6 @@ void train(RefCollection &input, RefCollection &expected_output) {
 //% block="Predict|number[] %input|number[] %output"
 //% shim=nntest::predict
 void predict(RefCollection &input, RefCollection &output) {
-
-    logLn("predict started");
-
     Vect *x = toVect(input);
 	Vect *y_hat = brain->forwardPropagate(x);
 	output.setLength(y_hat->getLength());
@@ -193,8 +162,6 @@ void predict(RefCollection &input, RefCollection &output) {
 	}
 	delete x;
 	delete y_hat;
-
-	logLn("predict finished");
 }
 
 
