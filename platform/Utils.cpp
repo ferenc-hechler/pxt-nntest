@@ -194,3 +194,6 @@ void logInt(int i) {
 	sprintf(buf, "%d", i);
 	log(buf);
 }
+
+
+

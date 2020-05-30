@@ -11,8 +11,16 @@
 
 
 
-//% color=#f44242 icon="\uf185"
+//% weight=70 icon="\u237E" color=#75CC05 block="NN"
 namespace nntest {
+
+    //% blockId=nntest_initfcnn
+    //% block="Init Brain|number %inputs|number[] %hidden|number %outputs"
+    //% shim=nntest::initfcnn
+    export function initfcnn(inputs: number, hidden: number[], outputs: number): void {
+    	basic.showString("sim:init")
+    }
+
 
     /**
     * Reads the number

@@ -12,6 +12,8 @@
         "nntest.cpp",
         "platform/Utils.h",
         "platform/Utils.cpp",
+        "common/logUtils.h",
+        "common/logUtils.cpp",
         "shims.d.ts",
         "enums.d.ts",
         "README.md"

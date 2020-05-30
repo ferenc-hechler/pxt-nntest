@@ -20,10 +20,48 @@
 #include <math.h>
 
 #include "platform/Utils.h"
+#include "common/logUtils.h"
 
 using namespace pxt;
 
 namespace nntest {
+
+
+//% blockId=nntest_initfcnn
+//% block="Init Brain|number %inputs|number[] %hidden|number %outputs"
+//% shim=nntest::initfcnn
+void initfcnn(int inputs, RefCollection &hidden, int outputs) {
+
+//	if (brain != 0) {
+//		delete brain;
+//	}
+//	brain = new NN(inputs);
+
+	logLn("initfcnn:");
+
+    int numHidden = hidden.length();
+
+    logNamedInt("inputs", inputs);
+	logNamedInt("numHidden", numHidden);
+    logNamedInt("outputs", outputs);
+
+//	uBit.serial.printf("creating FCNN: in:%d, hidden-layers:%d, out:%d\r\n", inputs, numHidden, outputs);
+
+    for (int i=0; i<numHidden; i++) {
+	    TNumber tn = hidden.getAt(i);
+		int nodes = toInt(tn);
+		logNamedInt("  hidden layer", nodes);
+//		brain->addLayer(nodes);
+//	    uBit.serial.printf("    hidden layer #%d: %d\r\n", i, nodes);
+    }
+
+//	brain->addLayer(outputs);
+
+//    uBit.serial.printf("FCNN successfully created\r\n");
+}
+
+
+
     /*
     * Calculates the light in Lux based on the ADC value passed in. 1 step in adcVal is equal to .488 uA or .976 lux at 5V
     */

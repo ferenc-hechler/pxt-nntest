@@ -1,4 +1,5 @@
 serial.writeLine("START")
+nntest.initfcnn(3, [7, 7], 2)
 let v = nntest.light(444, nntestType.Lux)
 basic.showNumber(v)
 serial.writeLine("STOP")
