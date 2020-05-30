@@ -59,7 +59,6 @@ size_t float2char(char* buf, float number, uint8_t digits) {
   return n;
 }
 
-
 #define SEC_PREFIX 		0
 #define SEC_INTPART 	1
 #define SEC_FRAGPART 	2
@@ -166,7 +165,6 @@ float char2float(const char* text) {
 }
 
 
-
 void throwError(const char *errMsg) {
 	while (true) {
 	    uBit.serial.send(errMsg);
@@ -194,6 +192,3 @@ void logInt(int i) {
 	sprintf(buf, "%d", i);
 	log(buf);
 }
-
-
-
