@@ -14,9 +14,12 @@
 */
 
 
-#include "pxt.h"
+#include <pxt.h>
+#include <MicroBit.h>
 #include <cstdint>
 #include <math.h>
+
+#include "platform/Utils.h"
 
 using namespace pxt;
 
@@ -25,9 +28,10 @@ namespace nntest {
     * Calculates the light in Lux based on the ADC value passed in. 1 step in adcVal is equal to .488 uA or .976 lux at 5V
     */
     //%
-    uint16_t getLux(int16_t ADCVal) {
-
-        return ADCVal * .25;
+    int16_t getLux(int16_t ADCVal) {
+    	int16_t result = ADCVal * .25;
+    	logInt(result);
+        return result;
     }
 
 }
